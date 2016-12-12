@@ -15,11 +15,11 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            this.BindGrid();
+            this.BindGridView();
         }
     }
 
-    private void BindGrid()
+    private void BindGridView()
     {
         string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         using (SqlConnection con = new SqlConnection(constr))
@@ -44,6 +44,6 @@ public partial class _Default : System.Web.UI.Page
     protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
-        this.BindGrid();
+        this.BindGridView();
     }
 }
